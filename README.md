@@ -9,14 +9,14 @@ Built for Razia's YouTube & social media voiceovers; free for anyone.
 ## How it works
 
 - `index.html` — single-page studio UI (golden #D4AF37 + dark blue #0A1A33, Poppins).
-- `api/voices.py` — Vercel Python function. Lists Urdu voices live via
-  `edge_tts.list_voices()` (Locale starting with `ur`); falls back to
-  `ur-PK-AsadNeural` (Male) and `ur-PK-AyeshaNeural` (Female) if the live
-  query fails.
-- `api/tts.py` — Vercel Python function. `POST {text, voice, rate}` →
-  MP3 audio (`audio/mpeg`). Max 2000 chars per request, voice must start
-  with `ur`, rate like `+0%` / `-25%`.
-- `requirements.txt` — just `edge-tts` (no API keys needed).
+- `app.py` — FastAPI app (Vercel Python runtime auto-detects it):
+  - `GET /` serves the studio UI
+  - `GET /api/voices` lists Urdu voices live via `edge_tts.list_voices()`
+    (Locale starting with `ur`); falls back to `ur-PK-AsadNeural` (Male)
+    and `ur-PK-AyeshaNeural` (Female) if the live query fails
+  - `POST /api/tts` with `{text, voice, rate}` → MP3 audio (`audio/mpeg`).
+    Max 2000 chars per request, voice must start with `ur`, rate like `+0%`
+- `requirements.txt` — `fastapi` + `edge-tts` (no API keys needed)
 
 ## Deploy (Vercel)
 
