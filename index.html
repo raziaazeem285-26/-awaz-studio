@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AwazStudio — Free Urdu Text to Speech</title>
+<meta name="description" content="AwazStudio is a free Urdu text-to-speech studio. Paste your text, pick a male or female Urdu voice, and download natural-sounding MP3 audio for YouTube and social media voiceovers.">
+<meta name="keywords" content="urdu text to speech, urdu tts, free urdu voice, urdu voiceover, text to speech online, awazstudio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awaz-studio.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AwazStudio — Free Urdu Text to Speech">
+<meta property="og:description" content="Paste text, choose a male or female Urdu voice, download MP3. Free for personal & YouTube use.">
+<meta property="og:url" content="https://awaz-studio.vercel.app/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AwazStudio — Free Urdu Text to Speech">
+<meta name="twitter:description" content="Free Urdu text-to-speech studio with natural male & female voices. Download MP3.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AwazStudio","applicationCategory":"MultimediaApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free Urdu text-to-speech studio. Natural male and female Urdu voices, MP3 download."}
+</script>
+<style>
+:root{--navy:#0A1A33;--navy2:#10254a;--gold:#D4AF37;--gold2:#b8942a;--ink:#f4f1e6;--muted:#9aa7c2;--card:#122a52;--line:rgba(212,175,55,.25)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',system-ui,sans-serif;background:linear-gradient(160deg,var(--navy) 0%,#071224 100%);color:var(--ink);min-height:100vh;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px}
+header.top{text-align:center;padding:34px 0 10px}
+.logo{font-size:34px;font-weight:700;letter-spacing:.5px}
+.logo span{color:var(--gold)}
+.tag{color:var(--muted);font-size:15px;margin-top:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-top:26px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+label.lbl{display:block;font-weight:600;font-size:14px;margin:18px 0 8px;color:var(--gold);letter-spacing:.3px}
+label.lbl:first-child{margin-top:0}
+textarea{width:100%;min-height:170px;resize:vertical;background:#0b1d3a;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:14px;font-family:'Poppins',sans-serif;font-size:15px;line-height:1.8}
+textarea:focus{outline:none;border-color:var(--gold)}
+.counter{text-align:right;font-size:12px;color:var(--muted);margin-top:6px}
+select{width:100%;background:#0b1d3a;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-family:'Poppins',sans-serif;font-size:15px}
+select:focus{outline:none;border-color:var(--gold)}
+.speedrow{display:flex;align-items:center;gap:14px}
+input[type=range]{flex:1;accent-color:var(--gold)}
+.speedval{min-width:110px;text-align:right;font-size:14px;color:var(--muted)}
+button.go{width:100%;margin-top:22px;background:linear-gradient(120deg,var(--gold),var(--gold2));color:#1a1405;border:none;border-radius:12px;padding:15px;font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;cursor:pointer;letter-spacing:.3px}
+button.go:hover{filter:brightness(1.06)}
+button.go:disabled{opacity:.55;cursor:wait}
+.status{margin-top:14px;font-size:14px;color:var(--muted);min-height:22px}
+.status.err{color:#ff9d9d}
+.status.ok{color:#9fe6a8}
+.player{margin-top:18px;display:none;background:#0b1d3a;border:1px solid var(--line);border-radius:12px;padding:16px}
+.player audio{width:100%}
+.dl{display:inline-block;margin-top:12px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:10px;padding:10px 20px;font-weight:600;font-size:14px;text-decoration:none}
+.dl:hover{background:var(--gold);color:#1a1405}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:14px;color:var(--muted)}
+.step b{display:block;color:var(--gold);font-size:15px;margin-bottom:6px}
+footer{text-align:center;margin-top:44px;color:var(--muted);font-size:13px}
+footer .gold{color:var(--gold)}
+@media(max-width:640px){.steps{grid-template-columns:1fr}.logo{font-size:27px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">Awaz<span>Studio</span></div>
+    <p class="tag">Free Urdu Text to Speech — natural male &amp; female voices, MP3 download</p>
+  </header>
+
+  <main>
+    <section class="card" aria-label="Urdu text to speech studio">
+      <label class="lbl" for="textInput">1. Apna text likhein / paste karein</label>
+      <textarea id="textInput" maxlength="2000" placeholder="Yahan apna voiceover text likhein…
+
+Example (Roman Urdu): Assalam o Alaikum! Aaj hum baat karenge sabr ki fazilat par.
+
+مثال (اردو): السلام علیکم! آج ہم صبر کی فضیلت پر بات کریں گے۔"></textarea>
+      <div class="counter"><span id="charCount">0</span> / 2000</div>
+
+      <label class="lbl" for="voiceSelect">2. Voice chunein (Male / Female)</label>
+      <select id="voiceSelect"><option value="">Voices load ho rahi hain…</option></select>
+
+      <label class="lbl" for="speedRange">3. Speed</label>
+      <div class="speedrow">
+        <input type="range" id="speedRange" min="0.5" max="1.5" step="0.05" value="1">
+        <span class="speedval" id="speedVal">1.00x (+0%)</span>
+      </div>
+
+      <button class="go" id="generateBtn">Generate Audio</button>
+      <div class="status" id="status"></div>
+
+      <div class="player" id="playerBox">
+        <audio id="audioPlayer" controls></audio><br>
+        <a class="dl" id="downloadLink" download="awazstudio.mp3" href="#">Download MP3</a>
+      </div>
+    </section>
+
+    <section class="steps" aria-label="How it works">
+      <div class="step"><b>1. Text likhein</b>Apna script Urdu ya Roman Urdu me paste karein (max 2000 characters).</div>
+      <div class="step"><b>2. Voice chunein</b>Male ya Female Urdu voice select karein, speed apne hisab se set karein.</div>
+      <div class="step"><b>3. Download karein</b>Generate dabayein, sunein, phir MP3 download karke video me lagayein.</div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="gold">AwazStudio</span> — Free for personal &amp; YouTube use.<br>
+    No signup. Your text is processed per request and not stored.
+  </footer>
+</div>
+
+<script>
+const textInput = document.getElementById('textInput');
+const charCount = document.getElementById('charCount');
+const voiceSelect = document.getElementById('voiceSelect');
+const speedRange = document.getElementById('speedRange');
+const speedVal = document.getElementById('speedVal');
+const generateBtn = document.getElementById('generateBtn');
+const statusEl = document.getElementById('status');
+const playerBox = document.getElementById('playerBox');
+const audioPlayer = document.getElementById('audioPlayer');
+const downloadLink = document.getElementById('downloadLink');
+
+const FALLBACK_VOICES = [
+  {id:'ur-PK-AsadNeural', name:'Asad (Male)', gender:'Male', locale:'ur-PK'},
+  {id:'ur-PK-AyeshaNeural', name:'Ayesha (Female)', gender:'Female', locale:'ur-PK'}
+];
+
+function setStatus(msg, cls){ statusEl.textContent = msg; statusEl.className = 'status' + (cls ? ' ' + cls : ''); }
+
+function fillVoices(voices){
+  voiceSelect.innerHTML = '';
+  const groups = {};
+  voices.forEach(v => { const g = (v.gender || 'Other'); (groups[g] = groups[g] || []).push(v); });
+  ['Female','Male','Other'].forEach(g => {
+    if(!groups[g]) return;
+    const og = document.createElement('optgroup'); og.label = g;
+    groups[g].forEach(v => {
+      const o = document.createElement('option');
+      o.value = v.id; o.textContent = v.name + ' — ' + v.locale;
+      og.appendChild(o);
+    });
+    voiceSelect.appendChild(og);
+  });
+}
+
+async function loadVoices(){
+  try{
+    const r = await fetch('/api/voices');
+    const j = await r.json();
+    if(j.voices && j.voices.length){ fillVoices(j.voices); return; }
+  }catch(e){}
+  fillVoices(FALLBACK_VOICES);
+}
+
+function speedToRate(){
+  const pct = Math.round((parseFloat(speedRange.value) - 1) * 100);
+  const r = (pct >= 0 ? '+' : '') + pct + '%';
+  speedVal.textContent = parseFloat(speedRange.value).toFixed(2) + 'x (' + r + ')';
+  return r;
+}
+
+textInput.addEventListener('input', () => { charCount.textContent = textInput.value.length; });
+speedRange.addEventListener('input', speedToRate);
+
+generateBtn.addEventListener('click', async () => {
+  const text = textInput.value.trim();
+  const voice = voiceSelect.value;
+  if(!text){ setStatus('Pehle kuch text likhein, phir Generate dabayein.', 'err'); return; }
+  if(!voice){ setStatus('Voice load nahi hui — page refresh karein.', 'err'); return; }
+  generateBtn.disabled = true;
+  playerBox.style.display = 'none';
+  setStatus('Audio ban raha hai, thoda intezar karein…');
+  try{
+    const r = await fetch('/api/tts', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({text, voice, rate: speedToRate()})
+    });
+    if(!r.ok){
+      let msg = 'Server error (' + r.status + ')';
+      try{ const j = await r.json(); if(j.error) msg = j.error; }catch(e){}
+      throw new Error(msg);
+    }
+    const blob = await r.blob();
+    const url = URL.createObjectURL(blob);
+    audioPlayer.src = url;
+    downloadLink.href = url;
+    playerBox.style.display = 'block';
+    setStatus('Ho gaya! Sun kar check karein, phir Download MP3 dabayein.', 'ok');
+  }catch(e){
+    setStatus('Masla hua: ' + e.message + ' — dobara try karein.', 'err');
+  }finally{
+    generateBtn.disabled = false;
+  }
+});
+
+speedToRate();
+loadVoices();
+</script>
+</body>
+</html>
